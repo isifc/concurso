@@ -1,0 +1,130 @@
+<?php
+
+namespace Home\BackendBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+/**
+ * EstudioPrimario
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Home\BackendBundle\Entity\EstudioPrimarioRepository")
+ */
+class EstudioPrimario
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="institucion", type="string", length=255)
+     */
+    private $institucion;
+
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="completo", type="boolean")
+     */
+    private $completo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cantidad_materias", type="integer")
+     */
+    private $cantidadMaterias;
+
+    /**
+    * @ORM\OneToOne(targetEntity="formulario", mappedBy="estudio_primario" ,fetch="EAGER")
+    */
+     private $formulario;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set institucion
+     *
+     * @param string $institucion
+     * @return EstudioPrimario
+     */
+    public function setInstitucion($institucion)
+    {
+        $this->institucion = $institucion;
+
+        return $this;
+    }
+
+    /**
+     * Get institucion
+     *
+     * @return string 
+     */
+    public function getInstitucion()
+    {
+        return $this->institucion;
+    }
+
+
+    /**
+     * Set completo
+     *
+     * @param boolean $completo
+     * @return EstudioPrimario
+     */
+    public function setCompleto($completo)
+    {
+        $this->completo = $completo;
+
+        return $this;
+    }
+
+    /**
+     * Get completo
+     *
+     * @return boolean 
+     */
+    public function getCompleto()
+    {
+        return $this->completo;
+    }
+
+    /**
+     * Set cantidadMaterias
+     *
+     * @param integer $cantidadMaterias
+     * @return EstudioPrimario
+     */
+    public function setCantidadMaterias($cantidadMaterias)
+    {
+        $this->cantidadMaterias = $cantidadMaterias;
+
+        return $this;
+    }
+
+    /**
+     * Get cantidadMaterias
+     *
+     * @return integer 
+     */
+    public function getCantidadMaterias()
+    {
+        return $this->cantidadMaterias;
+    }
+}

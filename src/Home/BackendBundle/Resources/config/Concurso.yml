@@ -1,0 +1,69 @@
+entityName: 'Concurso'
+entity: 'Home\BackendBundle\Entity\Concurso'
+repository: 'HomeBackendBundle:Concurso'
+index: 'admin_concurso'
+new: 'admin_concurso_new'
+edit: 'admin_concurso_edit'
+show: 'admin_concurso_show'
+create: 'admin_concurso_create'
+update: 'admin_concurso_update'
+delete: 'admin_concurso_delete'
+sessionFilter: 'ConcursoControllerFilter'
+fieldsindex:    
+    a.id:
+        label: 'Id'
+        name: 'Id'
+        type: 'integer'    
+    a.tipoConcurso:
+        label: 'Tipoconcurso'
+        name: 'Tipoconcurso'
+        type: 'string'    
+    a.fechaInicio:
+        label: 'Fechainicio'
+        name: 'Fechainicio'
+        type: 'datetime'
+        date: 'Y-m-d H:i:s'    
+    a.fechaFin:
+        label: 'Fechafin'
+        name: 'Fechafin'
+        type: 'datetime'
+        date: 'Y-m-d H:i:s'    
+    a.dectreto:
+        label: 'Dectreto'
+        name: 'Dectreto'
+        type: 'string'    
+    a.cantidadCargo:
+        label: 'Cantidadcargo'
+        name: 'Cantidadcargo'
+        type: 'integer'
+fieldsshow:
+    a.id:
+        label: 'Id'
+        name: 'Id'
+        type: 'integer'
+    a.tipoConcurso:
+        label: 'Tipoconcurso'
+        name: 'Tipoconcurso'
+        type: 'string'
+    a.fechaInicio:
+        label: 'Fechainicio'
+        name: 'Fechainicio'
+        type: 'datetime'
+        date: 'Y-m-d H:i:s'
+    a.fechaFin:
+        label: 'Fechafin'
+        name: 'Fechafin'
+        type: 'datetime'
+        date: 'Y-m-d H:i:s'
+    a.dectreto:
+        label: 'Dectreto'
+        name: 'Dectreto'
+        type: 'string'
+    a.cantidadCargo:
+        label: 'Cantidadcargo'
+        name: 'Cantidadcargo'
+        type: 'integer'
+    a.concursoxcargos:
+        label: 'Concursoxcargos'
+        name: 'Concursoxcargos'
+        type: 'ONE_TO_MANY'

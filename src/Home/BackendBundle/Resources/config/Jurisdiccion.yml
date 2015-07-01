@@ -1,0 +1,37 @@
+entityName: 'Jurisdiccion'
+entity: 'Home\BackendBundle\Entity\Jurisdiccion'
+repository: 'HomeBackendBundle:Jurisdiccion'
+index: 'admin_jurisdiccion'
+new: 'admin_jurisdiccion_new'
+edit: 'admin_jurisdiccion_edit'
+show: 'admin_jurisdiccion_show'
+create: 'admin_jurisdiccion_create'
+update: 'admin_jurisdiccion_update'
+delete: 'admin_jurisdiccion_delete'
+sessionFilter: 'JurisdiccionControllerFilter'
+fieldsindex:    
+    a.id:
+        label: 'Id'
+        name: 'Id'
+        type: 'integer'    
+    a.denominacion:
+        label: 'Denominacion'
+        name: 'Denominacion'
+        type: 'string'    
+    a.CUIT:
+        label: 'Cuit'
+        name: 'Cuit'
+        type: 'integer'
+fieldsshow:
+    a.id:
+        label: 'Id'
+        name: 'Id'
+        type: 'integer'
+    a.denominacion:
+        label: 'Denominacion'
+        name: 'Denominacion'
+        type: 'string'
+    a.CUIT:
+        label: 'Cuit'
+        name: 'Cuit'
+        type: 'integer'

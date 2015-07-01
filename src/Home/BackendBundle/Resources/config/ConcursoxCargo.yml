@@ -1,0 +1,49 @@
+entityName: 'ConcursoxCargo'
+entity: 'Home\BackendBundle\Entity\ConcursoxCargo'
+repository: 'HomeBackendBundle:ConcursoxCargo'
+index: 'admin_concursoxcargo'
+new: 'admin_concursoxcargo_new'
+edit: 'admin_concursoxcargo_edit'
+show: 'admin_concursoxcargo_show'
+create: 'admin_concursoxcargo_create'
+update: 'admin_concursoxcargo_update'
+delete: 'admin_concursoxcargo_delete'
+sessionFilter: 'ConcursoxCargoControllerFilter'
+fieldsindex:    
+    a.id:
+        label: 'Id'
+        name: 'Id'
+        type: 'integer'
+    a.concurso:
+        label: 'Concurso'
+        name: 'Concurso'
+        type: 'MANY_TO_ONE'
+    a.cargo:
+        label: 'Cargo'
+        name: 'Cargo'
+        type: 'MANY_TO_ONE'
+    a.oficina:
+        label: 'Oficina'
+        name: 'Oficina'
+        type: 'MANY_TO_ONE'
+fieldsshow:
+    a.id:
+        label: 'Id'
+        name: 'Id'
+        type: 'integer'
+    a.concurso:
+        label: 'Concurso'
+        name: 'Concurso'
+        type: 'MANY_TO_ONE'
+    a.cargo:
+        label: 'Cargo'
+        name: 'Cargo'
+        type: 'MANY_TO_ONE'
+    a.oficina:
+        label: 'Oficina'
+        name: 'Oficina'
+        type: 'MANY_TO_ONE'
+    a.formularios:
+        label: 'Formularios'
+        name: 'Formularios'
+        type: 'ONE_TO_MANY'

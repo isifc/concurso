@@ -1,0 +1,33 @@
+entityName: 'Nivel'
+entity: 'Home\BackendBundle\Entity\Nivel'
+repository: 'HomeBackendBundle:Nivel'
+index: 'admin_nivel'
+new: 'admin_nivel_new'
+edit: 'admin_nivel_edit'
+show: 'admin_nivel_show'
+create: 'admin_nivel_create'
+update: 'admin_nivel_update'
+delete: 'admin_nivel_delete'
+sessionFilter: 'NivelControllerFilter'
+fieldsindex:    
+    a.id:
+        label: 'Id'
+        name: 'Id'
+        type: 'integer'    
+    a.denominacion:
+        label: 'Denominacion'
+        name: 'Denominacion'
+        type: 'string'
+fieldsshow:
+    a.id:
+        label: 'Id'
+        name: 'Id'
+        type: 'integer'
+    a.denominacion:
+        label: 'Denominacion'
+        name: 'Denominacion'
+        type: 'string'
+    a.estudios_superiores:
+        label: 'Estudios_superiores'
+        name: 'Estudios_superiores'
+        type: 'ONE_TO_MANY'

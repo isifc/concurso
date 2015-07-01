@@ -1,0 +1,67 @@
+{% extends 'MWSimpleAdminCrudBundle::layout.html.twig' %}
+
+{% block title %}
+{{ parent() }} - {{ 'views.show.show'|trans({'%entity%': config.entityName}, 'MWSimpleAdminCrudBundle') }}
+{% endblock %}
+
+{% block page %}
+    <div class="panel panel-primary center-block">
+        <div class="panel-heading">
+            <i class="glyphicon glyphicon-ok"></i> {{ 'views.show.show'|trans({'%entity%': config.entityName}, 'MWSimpleAdminCrudBundle') }}
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <fieldset>
+                    {% for key, field in config.fieldsshow %}
+                        <div class="form-group">
+                            <label class="control-label">{{ field.label }}</label>
+                            {% if field.type in ['datetime', 'datetimetz', 'date', 'time'] %}
+                                <div class="form-control">
+                                    <span class="input-xlarge uneditable-input">
+                                        {{ attribute(entity, field.name)|date(field.date) }}
+                                    </span>
+                                </div>
+                            {% elseif field.type in ['boolean'] %}
+                                <div class="form-control">
+                                    <span class="input-xlarge uneditable-input">
+                                        {{ isActive(attribute(entity, field.name)) }}
+                                    </span>
+                                </div>
+                            {% elseif field.type in ['ONE_TO_MANY', 'MANY_TO_MANY'] %}
+                                {% set many_entity = attribute(entity, field.name) %}
+                                <div class="form-control">
+                                    <span class="input-xlarge uneditable-input">
+                                        {% for key, field in many_entity %}
+                                            {{ field }} |
+                                        {% endfor %}
+                                    </span>
+                                </div>
+                            {% elseif field.type in ['text'] %}
+                                <textarea class="form-control" rows="3">{{ attribute(entity, field.name) }}</textarea>
+                            {% else %}
+                                <div class="form-control">
+                                    <span class="input-xlarge uneditable-input">
+                                        {{ attribute(entity, field.name) }}
+                                    </span>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="float-left col-lg-3">
+            <a class="btn btn-info col-lg-11" href="{{ path(config.index) }}">
+                {{ 'views.recordactions.backtothelist'|trans({}, 'MWSimpleAdminCrudBundle') }}
+            </a>
+        </div>
+        <div class="float-left col-lg-3">
+            <a class="btn btn-primary col-lg-11" href="{{ path(config.edit, { 'id': entity.id }) }}">
+                {{ 'views.recordactions.edit'|trans({'%entity%': config.entityName}, 'MWSimpleAdminCrudBundle') }}
+            </a>
+        </div>
+        <div class="float-left col-lg-3">{{ form(delete_form) }}</div>
+    </div>
+{% endblock %}

@@ -1,0 +1,81 @@
+entityName: 'Cargo'
+entity: 'Home\BackendBundle\Entity\Cargo'
+repository: 'HomeBackendBundle:Cargo'
+index: 'admin_cargo'
+new: 'admin_cargo_new'
+edit: 'admin_cargo_edit'
+show: 'admin_cargo_show'
+create: 'admin_cargo_create'
+update: 'admin_cargo_update'
+delete: 'admin_cargo_delete'
+sessionFilter: 'CargoControllerFilter'
+fieldsindex:    
+    a.id:
+        label: 'Id'
+        name: 'Id'
+        type: 'integer'    
+    a.categoria:
+        label: 'Categoria'
+        name: 'Categoria'
+        type: 'string'    
+    a.apartado:
+        label: 'Apartado'
+        name: 'Apartado'
+        type: 'string'    
+    a.escalafon:
+        label: 'Escalafon'
+        name: 'Escalafon'
+        type: 'integer'    
+    a.funcion:
+        label: 'Funcion'
+        name: 'Funcion'
+        type: 'integer'    
+    a.denominacion:
+        label: 'Denominacion'
+        name: 'Denominacion'
+        type: 'string'    
+    a.grupo:
+        label: 'Grupo'
+        name: 'Grupo'
+        type: 'string'    
+    a.cUOF:
+        label: 'Cuof'
+        name: 'Cuof'
+        type: 'integer'
+fieldsshow:
+    a.id:
+        label: 'Id'
+        name: 'Id'
+        type: 'integer'
+    a.categoria:
+        label: 'Categoria'
+        name: 'Categoria'
+        type: 'string'
+    a.apartado:
+        label: 'Apartado'
+        name: 'Apartado'
+        type: 'string'
+    a.escalafon:
+        label: 'Escalafon'
+        name: 'Escalafon'
+        type: 'integer'
+    a.funcion:
+        label: 'Funcion'
+        name: 'Funcion'
+        type: 'integer'
+    a.denominacion:
+        label: 'Denominacion'
+        name: 'Denominacion'
+        type: 'string'
+    a.grupo:
+        label: 'Grupo'
+        name: 'Grupo'
+        type: 'string'
+    a.cUOF:
+        label: 'Cuof'
+        name: 'Cuof'
+        type: 'integer'
+    a.concursoxcargos:
+        label: 'Concursoxcargos'
+        name: 'Concursoxcargos'
+        type: 'ONE_TO_MANY'

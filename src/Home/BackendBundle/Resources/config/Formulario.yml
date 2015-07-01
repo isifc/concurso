@@ -1,0 +1,193 @@
+entityName: 'Formulario'
+entity: 'Home\BackendBundle\Entity\Formulario'
+repository: 'HomeBackendBundle:Formulario'
+index: 'admin_formulario'
+new: 'admin_formulario_new'
+edit: 'admin_formulario_edit'
+show: 'admin_formulario_show'
+create: 'admin_formulario_create'
+update: 'admin_formulario_update'
+delete: 'admin_formulario_delete'
+sessionFilter: 'FormularioControllerFilter'
+fieldsindex:    
+    a.id:
+        label: 'Id'
+        name: 'Id'
+        type: 'integer'    
+    a.estado:
+        label: 'Estado'
+        name: 'Estado'
+        type: 'boolean'    
+    a.nroAleatorio:
+        label: 'Nroaleatorio'
+        name: 'Nroaleatorio'
+        type: 'integer'    
+    a.entregoCarpeta:
+        label: 'Entregocarpeta'
+        name: 'Entregocarpeta'
+        type: 'boolean'    
+    a.fechaInscripcion:
+        label: 'Fechainscripcion'
+        name: 'Fechainscripcion'
+        type: 'datetime'
+        date: 'Y-m-d H:i:s'    
+    a.apellido:
+        label: 'Apellido'
+        name: 'Apellido'
+        type: 'string'    
+    a.nombre:
+        label: 'Nombre'
+        name: 'Nombre'
+        type: 'string'    
+    a.dNI:
+        label: 'Dni'
+        name: 'Dni'
+        type: 'integer'    
+    a.cUIL:
+        label: 'Cuil'
+        name: 'Cuil'
+        type: 'bigint'    
+    a.fechaNacimiento:
+        label: 'Fechanacimiento'
+        name: 'Fechanacimiento'
+        type: 'date'
+        date: 'Y-m-d'    
+    a.provincia:
+        label: 'Provincia'
+        name: 'Provincia'
+        type: 'string'    
+    a.localidad:
+        label: 'Localidad'
+        name: 'Localidad'
+        type: 'string'    
+    a.direccion:
+        label: 'Direccion'
+        name: 'Direccion'
+        type: 'string'    
+    a.codigoPostal:
+        label: 'Codigopostal'
+        name: 'Codigopostal'
+        type: 'integer'    
+    a.mail:
+        label: 'Mail'
+        name: 'Mail'
+        type: 'string'    
+    a.telefono:
+        label: 'Telefono'
+        name: 'Telefono'
+        type: 'integer'    
+    a.telefonoLaboral:
+        label: 'Telefonolaboral'
+        name: 'Telefonolaboral'
+        type: 'integer'    
+    a.celular:
+        label: 'Celular'
+        name: 'Celular'
+        type: 'integer'
+    a.estudio_primario:
+        label: 'Estudio_primario'
+        name: 'Estudio_primario'
+        type: 'ONE_TO_ONE'
+    a.estudio_secundario:
+        label: 'Estudio_secundario'
+        name: 'Estudio_secundario'
+        type: 'ONE_TO_ONE'
+    a.concursoxcargo:
+        label: 'Concursoxcargo'
+        name: 'Concursoxcargo'
+        type: 'MANY_TO_ONE'
+fieldsshow:
+    a.id:
+        label: 'Id'
+        name: 'Id'
+        type: 'integer'
+    a.estado:
+        label: 'Estado'
+        name: 'Estado'
+        type: 'boolean'
+    a.nroAleatorio:
+        label: 'Nroaleatorio'
+        name: 'Nroaleatorio'
+        type: 'integer'
+    a.entregoCarpeta:
+        label: 'Entregocarpeta'
+        name: 'Entregocarpeta'
+        type: 'boolean'
+    a.fechaInscripcion:
+        label: 'Fechainscripcion'
+        name: 'Fechainscripcion'
+        type: 'datetime'
+        date: 'Y-m-d H:i:s'
+    a.apellido:
+        label: 'Apellido'
+        name: 'Apellido'
+        type: 'string'
+    a.nombre:
+        label: 'Nombre'
+        name: 'Nombre'
+        type: 'string'
+    a.dNI:
+        label: 'Dni'
+        name: 'Dni'
+        type: 'integer'
+    a.cUIL:
+        label: 'Cuil'
+        name: 'Cuil'
+        type: 'bigint'
+    a.fechaNacimiento:
+        label: 'Fechanacimiento'
+        name: 'Fechanacimiento'
+        type: 'date'
+        date: 'Y-m-d'
+    a.provincia:
+        label: 'Provincia'
+        name: 'Provincia'
+        type: 'string'
+    a.localidad:
+        label: 'Localidad'
+        name: 'Localidad'
+        type: 'string'
+    a.direccion:
+        label: 'Direccion'
+        name: 'Direccion'
+        type: 'string'
+    a.codigoPostal:
+        label: 'Codigopostal'
+        name: 'Codigopostal'
+        type: 'integer'
+    a.mail:
+        label: 'Mail'
+        name: 'Mail'
+        type: 'string'
+    a.telefono:
+        label: 'Telefono'
+        name: 'Telefono'
+        type: 'integer'
+    a.telefonoLaboral:
+        label: 'Telefonolaboral'
+        name: 'Telefonolaboral'
+        type: 'integer'
+    a.celular:
+        label: 'Celular'
+        name: 'Celular'
+        type: 'integer'
+    a.estudio_primario:
+        label: 'Estudio_primario'
+        name: 'Estudio_primario'
+        type: 'ONE_TO_ONE'
+    a.estudio_secundario:
+        label: 'Estudio_secundario'
+        name: 'Estudio_secundario'
+        type: 'ONE_TO_ONE'
+    a.estudios_superiores:
+        label: 'Estudios_superiores'
+        name: 'Estudios_superiores'
+        type: 'ONE_TO_MANY'
+    a.cursos:
+        label: 'Cursos'
+        name: 'Cursos'
+        type: 'ONE_TO_MANY'
+    a.concursoxcargo:
+        label: 'Concursoxcargo'
+        name: 'Concursoxcargo'
+        type: 'MANY_TO_ONE'
