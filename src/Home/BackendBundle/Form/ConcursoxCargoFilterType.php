@@ -15,7 +15,7 @@ use Symfony\Component\Form\FormError;
  */
 class ConcursoxCargoFilterType extends AbstractType
 {
-    /**
+        /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */

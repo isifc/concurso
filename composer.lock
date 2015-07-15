@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "30ec34ec119bdb970e18f7a5b1ef8dc0",
+    "hash": "d279f13b0f3e7b4911f105bc90bf7c80",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -939,135 +939,18 @@
             "time": "2014-10-06 10:38:10"
         },
         {
-            "name": "knplabs/knp-menu",
-            "version": "v2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KnpLabs/KnpMenu.git",
-                "reference": "5758d0026d7ed00c8dd4727e413918cf2dc74c1a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/5758d0026d7ed00c8dd4727e413918cf2dc74c1a",
-                "reference": "5758d0026d7ed00c8dd4727e413918cf2dc74c1a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "pimple/pimple": "1.0.*",
-                "silex/silex": "1.0.*",
-                "twig/twig": ">=1.2,<2.0-dev"
-            },
-            "suggest": {
-                "pimple/pimple": "for the built-in implementations of the menu provider and renderer provider",
-                "silex/silex": "for the integration with your silex application",
-                "twig/twig": "for the TwigRenderer and the integration with your templates"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Knp\\Menu\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christophe Coevoet",
-                    "email": "stof@notk.org"
-                },
-                {
-                    "name": "KnpLabs",
-                    "homepage": "http://knplabs.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/KnpLabs/KnpMenu/contributors"
-                }
-            ],
-            "description": "An object oriented menu library",
-            "homepage": "http://knplabs.com",
-            "keywords": [
-                "menu",
-                "tree"
-            ],
-            "time": "2014-08-01 09:50:16"
-        },
-        {
-            "name": "knplabs/knp-menu-bundle",
-            "version": "v2.0.0",
-            "target-dir": "Knp/Bundle/MenuBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "bdfc95da5ff7e4e67f948aaa9ea5da835a3a9088"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/bdfc95da5ff7e4e67f948aaa9ea5da835a3a9088",
-                "reference": "bdfc95da5ff7e4e67f948aaa9ea5da835a3a9088",
-                "shasum": ""
-            },
-            "require": {
-                "knplabs/knp-menu": "~2.0",
-                "symfony/framework-bundle": "~2.0"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Knp\\Bundle\\MenuBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christophe Coevoet",
-                    "email": "stof@notk.org"
-                },
-                {
-                    "name": "Knplabs",
-                    "homepage": "http://knplabs.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/KnpLabs/KnpMenuBundle/contributors"
-                }
-            ],
-            "description": "This bundle provides an integration of the KnpMenu library",
-            "keywords": [
-                "menu"
-            ],
-            "time": "2014-08-01 09:57:23"
-        },
-        {
             "name": "knplabs/knp-paginator-bundle",
-            "version": "2.4.2",
+            "version": "2.4.0",
+            "target-dir": "Knp/Bundle/PaginatorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
-                "reference": "800eb12f225573869b6f04d77a6e329a6da9110f"
+                "reference": "4202329b4d639c1a03d0007e31a52049d31c591e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/800eb12f225573869b6f04d77a6e329a6da9110f",
-                "reference": "800eb12f225573869b6f04d77a6e329a6da9110f",
+                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/4202329b4d639c1a03d0007e31a52049d31c591e",
+                "reference": "4202329b4d639c1a03d0007e31a52049d31c591e",
                 "shasum": ""
             },
             "require": {
@@ -1076,18 +959,15 @@
                 "symfony/framework-bundle": "~2.0",
                 "twig/twig": "~1.5"
             },
-            "require-dev": {
-                "symfony/expression-language": "~2.4"
-            },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4.x-dev"
+                    "dev-master": "2.3.x-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Knp\\Bundle\\PaginatorBundle\\": ""
+                "psr-0": {
+                    "Knp\\Bundle\\PaginatorBundle": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1115,7 +995,7 @@
                 "pagination",
                 "paginator"
             ],
-            "time": "2015-05-20 15:09:02"
+            "time": "2014-01-21 07:26:00"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1320,24 +1200,22 @@
             "time": "2015-06-19 13:29:54"
         },
         {
-            "name": "mwsimple/admin-crud",
-            "version": "dev-master",
-            "target-dir": "MWSimple/Bundle/AdminCrudBundle",
+            "name": "mwsimple/crud-generator",
+            "version": "v2.3.9",
+            "target-dir": "MWSimple/Bundle/CrudGeneratorBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/MWSimple/AdminCrudBundle.git",
-                "reference": "5d09e59c15e6fadf878c32c63593d5c53e86a51e"
+                "url": "https://github.com/MWSimple/CrudGeneratorBundle.git",
+                "reference": "1c37b040981f1c502250c75c431140db8af72c0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MWSimple/AdminCrudBundle/zipball/5d09e59c15e6fadf878c32c63593d5c53e86a51e",
-                "reference": "5d09e59c15e6fadf878c32c63593d5c53e86a51e",
+                "url": "https://api.github.com/repos/MWSimple/CrudGeneratorBundle/zipball/1c37b040981f1c502250c75c431140db8af72c0c",
+                "reference": "1c37b040981f1c502250c75c431140db8af72c0c",
                 "shasum": ""
             },
             "require": {
-                "knplabs/knp-menu": "2.0.*@dev",
-                "knplabs/knp-menu-bundle": "2.0.*@dev",
-                "knplabs/knp-paginator-bundle": "2.4.2",
+                "knplabs/knp-paginator-bundle": "2.4.0",
                 "lexik/form-filter-bundle": "v2.0.2",
                 "sensio/generator-bundle": "2.3.*",
                 "symfony/symfony": "~2.3"
@@ -1350,7 +1228,7 @@
             },
             "autoload": {
                 "psr-0": {
-                    "MWSimple\\Bundle\\AdminCrudBundle": ""
+                    "MWSimple\\Bundle\\CrudGeneratorBundle": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1363,14 +1241,14 @@
                     "email": "gonkpo@gmail.com"
                 }
             ],
-            "description": "This bundle admin crud",
-            "homepage": "https://github.com/MWSimple/AdminCrudBundle",
+            "description": "This bundle generates code cute for you",
+            "homepage": "https://github.com/MWSimple/CrudGeneratorBundle",
             "keywords": [
-                "admin",
                 "bootstrap",
-                "crud"
+                "crud",
+                "generator"
             ],
-            "time": "2015-06-18 11:19:31"
+            "time": "2014-02-24 13:47:43"
         },
         {
             "name": "psr/log",
@@ -2085,8 +1963,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/user-bundle": 20,
-        "mwsimple/admin-crud": 20
+        "friendsofsymfony/user-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

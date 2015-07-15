@@ -12,36 +12,22 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  */
 class FormularioType extends AbstractType
 {
-    /**
+        /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('estado')
-            ->add('nroAleatorio')
-            ->add('entregoCarpeta')
-            ->add('fechaInscripcion', 'bootstrapdatetime', array(
-                'required'   => true,
-                'label'      => 'Fechainscripcion',
-                'label_attr' => array(
-                    'class' => 'col-lg-2 col-md-2 col-sm-2',
-                ),
-                'widget_type' => 'both',
-            ))
+            //->add('estado')
+            //->add('nroAleatorio')
+            //->add('entregoCarpeta')
+            //->add('fechaInscripcion')
             ->add('apellido')
             ->add('nombre')
             ->add('dNI')
             ->add('cUIL')
-            ->add('fechaNacimiento', 'bootstrapdatetime', array(
-                'required'   => true,
-                'label'      => 'Fechanacimiento',
-                'label_attr' => array(
-                    'class' => 'col-lg-2 col-md-2 col-sm-2',
-                ),
-                'widget_type' => 'date',
-            ))
+            ->add('fechaNacimiento')
             ->add('provincia')
             ->add('localidad')
             ->add('direccion')
@@ -50,61 +36,16 @@ class FormularioType extends AbstractType
             ->add('telefono')
             ->add('telefonoLaboral')
             ->add('celular')
-            ->add('estudio_primario', 'select2', array(
-                'class' => 'Home\BackendBundle\Entity\EstudioPrimario',
-                'url'   => 'Formulario_autocomplete_estudio_primario',
-                'configs' => array(
-                    'multiple' => false,//required true or false
-                    'width'    => 'off',
-                ),
-                'attr' => array(
-                    'class' => "col-lg-12 col-md-12 col-sm-12 col-xs-12",
-                )
-            ))
-            ->add('estudio_secundario', 'select2', array(
-                'class' => 'Home\BackendBundle\Entity\EstudioSecundario',
-                'url'   => 'Formulario_autocomplete_estudio_secundario',
-                'configs' => array(
-                    'multiple' => false,//required true or false
-                    'width'    => 'off',
-                ),
-                'attr' => array(
-                    'class' => "col-lg-12 col-md-12 col-sm-12 col-xs-12",
-                )
-            ))
-            ->add('estudios_superiores', 'select2', array(
-                'class' => 'Home\BackendBundle\Entity\EstudioSuperior',
-                'url'   => 'Formulario_autocomplete_estudios_superiores',
-                'configs' => array(
-                    'multiple' => true,//required true or false
-                    'width'    => 'off',
-                ),
-                'attr' => array(
-                    'class' => "col-lg-12 col-md-12 col-sm-12 col-xs-12",
-                )
-            ))
-            ->add('cursos', 'select2', array(
-                'class' => 'Home\BackendBundle\Entity\Cursos',
-                'url'   => 'Formulario_autocomplete_cursos',
-                'configs' => array(
-                    'multiple' => true,//required true or false
-                    'width'    => 'off',
-                ),
-                'attr' => array(
-                    'class' => "col-lg-12 col-md-12 col-sm-12 col-xs-12",
-                )
-            ))
-            ->add('concursoxcargo', 'select2', array(
-                'class' => 'Home\BackendBundle\Entity\ConcursoxCargo',
-                'url'   => 'Formulario_autocomplete_concursoxcargo',
-                'configs' => array(
-                    'multiple' => false,//required true or false
-                    'width'    => 'off',
-                ),
-                'attr' => array(
-                    'class' => "col-lg-12 col-md-12 col-sm-12 col-xs-12",
-                )
-            ))
+            ->add('estudio_primario',new EstudioPrimarioType(), array(
+                                    'attr' => array('class' => 'well')))
+            ->add('estudio_secundario',new EstudioSecundarioType(), array(
+                                    'attr' => array('class' => 'well')))
+            ->add('cursos','collection', 
+                array(
+                    'type' => new CursosType(),
+                    'allow_delete'   => true,
+                    'allow_add'      => true,
+                    'by_reference'   => false, ));
         ;
     }
     

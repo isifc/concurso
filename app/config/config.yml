@@ -2,7 +2,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@MWSimpleAdminCrudBundle/Resources/config/services.yml" }
 
 framework:
     #esi:             ~
@@ -25,6 +24,8 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    profiler:
+        collect: false
 
 # Twig Configuration
 twig:
@@ -33,7 +34,7 @@ twig:
     form:
         resources:
             - LexikFormFilterBundle:Form:form_div_layout.html.twig
-
+            - HomeBackendBundle:Form:fields.html.twig
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
@@ -82,42 +83,3 @@ fos_user:
     firewall_name: main
     user_class: Acme\DemoBundle\Entity\User
 
-knp_paginator:
-    page_range: 10                      # default page range used in pagination control
-    default_options:
-        page_name: page                # page query parameter name
-        sort_field_name: sort          # sort field query parameter name
-        sort_direction_name: direction # sort direction query parameter name
-        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
-    template:
-        # pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig # bootstrap 3 sliding pagination controls template
-        pagination: MWSimpleAdminCrudBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig # bootstrap 3 sliding pagination controls template
-        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
-
-
-mw_simple_admin_crud:
-    menu:
-        setting: { class: nav nav-pills }
-        child: { name: inicio, url: mws_admin_crud_menu }
-        #child2: { name: seccion, url: admin_seccion }
-        child3:  
-            name: help
-            url: null
-            subMenu:
-                 indice: { name: indice , url: admin_indice }
-
-
-knp_menu:
-    twig:  # use "twig: false" to disable the Twig extension and the TwigRenderer
-        template: MWSimpleAdminCrudBundle:Menu:knp_menu.html.twig
-    templating: false # if true, enables the helper for PHP templates
-    default_renderer: twig # The renderer to use, list is also available by default
-
-mw_simple_admin_crud:
-    menu:
-        child: { name: inicio, url: mws_admin_crud_menu, icon: glyphicon glyphicon-home }
-        child2:  
-            name: help
-            url: null
-            subMenu:
-                 indice: { name: indice , url: admin_indice, icon: glyphicon glyphicon-home }

@@ -15,34 +15,34 @@ use Symfony\Component\Form\FormError;
  */
 class CargoFilterType extends AbstractType
 {
-    /**
+        /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('categoria', 'filter_text_like', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('apartado', 'filter_text_like', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('escalafon', 'filter_number_range', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('funcion', 'filter_number_range', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('denominacion', 'filter_text_like', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('grupo', 'filter_text_like', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('cUOF', 'filter_number_range', array(
-                'attr'=> array('class'=>'form-control')
-            ))
+            ->add('categoria', 'filter_text',array(
+                        'attr'=> array('class'=>'form-control')
+                    ))
+            ->add('apartado', 'filter_text',array(
+                        'attr'=> array('class'=>'form-control')
+                    ))
+            ->add('escalafon', 'filter_number_range',array(
+                        'attr'=> array('class'=>'form-control')
+                    ))
+            ->add('funcion', 'filter_number_range',array(
+                        'attr'=> array('class'=>'form-control')
+                    ))
+            ->add('denominacion', 'filter_text',array(
+                        'attr'=> array('class'=>'form-control')
+                    ))
+            ->add('grupo', 'filter_text',array(
+                        'attr'=> array('class'=>'form-control')
+                    ))
+            ->add('cUOF', 'filter_number_range',array(
+                        'attr'=> array('class'=>'form-control')
+                    ))
         ;
 
         $listener = function(FormEvent $event)

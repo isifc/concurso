@@ -23,6 +23,7 @@ class ConcursoxCargo
 
     /**
     * @ORM\ManyToOne(targetEntity="Concurso", inversedBy="concursoxcargos" ,fetch="EAGER")
+    * @ORM\JoinColumn(onDelete="CASCADE")
     */
     private $concurso;
 
@@ -160,5 +161,10 @@ class ConcursoxCargo
     public function getFormularios()
     {
         return $this->formularios;
+    }
+
+
+    public function __toString(){
+        return (string)$this->getCargo()." ";
     }
 }

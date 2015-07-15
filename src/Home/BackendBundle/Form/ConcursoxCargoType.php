@@ -12,6 +12,18 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  */
 class ConcursoxCargoType extends AbstractType
 {
+        /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            //->add('concurso')
+            ->add('cargo')
+            ->add('oficina')
+        ;
+    }
     
     /**
      * @param OptionsResolverInterface $resolver

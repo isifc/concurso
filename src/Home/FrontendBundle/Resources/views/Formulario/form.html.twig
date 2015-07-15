@@ -1,0 +1,47 @@
+{% macro widget_prototype(widget, remove_text) %}
+    {% if widget.vars.prototype is defined %}
+        {% set form = widget.vars.prototype %}
+        {% set name = widget.vars.prototype.vars.name %}
+    {% else %}
+        {% set form = widget %}
+        {% set name = widget.vars.full_name %}
+    {% endif %}
+
+    <div class="curso" data-content="{{ name }}">
+        <a class="btn-remove btn-danger" href="#" data-related="{{ name }}">{{ remove_text }}</a>
+        {{ form_widget(form) }}
+    </div>
+{% endmacro %}
+{{ form_start(form) }}
+<h3> Seccion 1. Datos personales </h3>
+    {{ form_row(form.apellido) }}
+    {{ form_row(form.nombre) }}
+    {{ form_row(form.cUIL) }}
+    {{ form_row(form.dNI) }}
+    {{ form_row(form.fechaNacimiento) }} 
+  	{{ form_row(form.provincia) }}
+    {{ form_row(form.localidad) }}
+    {{ form_row(form.direccion) }}
+    {{ form_row(form.codigoPostal) }}
+    {{ form_row(form.mail) }}      
+    {{ form_row(form.telefono) }}
+    {{ form_row(form.telefonoLaboral) }}
+    {{ form_row(form.celular) }}
+<h3>Seccion 2. Seccion de Estudios</h3>
+<h4>Estudios Primarios </h4>
+    {{ form_row(form.estudio_primario) }}
+    <h4>Estudios Secundarios </h4>
+    {{ form_row(form.estudio_secundario) }} 
+<h3>Seccion 3. Seccion Cursos</h3>
+<h4>Cursos</h4>
+
+     <div class="cursos" data-count="{{ form.cursos|length }}" data-prototype="{{ _self.widget_prototype(form.cursos, 'Quitar Curso')|escape }}">
+        <a class="btn btn-primary btn-add" href="#">Agregar Curso</a>
+        {% for cursoForm in form.cursos %}
+            {{ _self.widget_prototype(cursoForm, 'Quitar Curso') }}
+        {% endfor %}
+    </div>     
+    
+   
+    {{ form_rest(form) }}
+{{ form_end(form) }}

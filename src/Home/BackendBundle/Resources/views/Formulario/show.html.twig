@@ -1,1 +1,139 @@
-{% extends 'MWSimpleAdminCrudBundle:Default:show.html.twig' %}
+{% extends 'MWSimpleCrudGeneratorBundle::layout.html.twig' %}
+
+{% block title %}
+{{ parent() }} - {{ 'views.show.show'|trans({'%entity%': 'Formulario'}, 'MWSimpleCrudGeneratorBundle') }}
+{% endblock %}
+
+{% block page %}
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h3><b>Formulario</b></h3>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label">Apellido y Nombre </label>
+                    </div>
+                    <div class="col-md-5">
+                        <h4> {{ [entity.apellido," ",entity.nombre]| join }}  </h4>
+                    </div>
+                </div>
+               
+                 <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label">DNI: </label>
+                    </div>
+                    <div class="col-md-5">
+                        <b>{{entity.dNI}}</b>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label">Cuil: </label>
+                    </div>
+                    <div class="col-md-5">
+                            <b>{{ entity.cUIL }}</b>
+                       
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label">Fecha de Nacimiento</label>
+                    </div>
+                    <div class="col-md-5">
+                            {{ entity.fechaNacimiento|date('Y-m-d') }}
+                       
+                    </div>     
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label">Provincia</label>
+                    </div>
+                    <div class="col-md-5">
+                            {{ entity.provincia }}
+                    </div>     
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label">Localidad</label>
+                    </div>
+                    <div class="col-md-5">
+                            {{ entity.localidad }}
+                       
+                    </div>     
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label">Direccion</label>
+                    </div>
+                    <div class="col-md-5">
+                            {{ entity.direccion }}
+                       
+                    </div>     
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label">Mail: </label>
+                    </div>
+                    <div class="col-md-5">
+                            {{ entity.mail }}
+                       
+                    </div>     
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label">Telefono: </label>
+                    </div>
+                    <div class="col-md-5">
+                            {{ entity.telefono }}
+                       
+                    </div>     
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label">Telefono laboral: </label>
+                    </div>
+                    <div class="col-md-5">
+                            {{ entity.telefonoLaboral }}
+                       
+                    </div>     
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label">Celular: </label>
+                    </div>
+                    <div class="col-md-5">
+                            {{ entity.celular }}
+                       
+                    </div>     
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label">¿ Entrego carpeta ?: </label>
+                    </div>
+                    <div class="col-md-5">
+                            {% if entity.entregoCarpeta == true %}
+                            <p style="color:green"> SI</p>
+                             {% else %}
+                             <p style="color:red"> NO</p>
+                             {% endif %}
+                    </div>     
+                </div>
+        </div>
+</div>
+
+
+
+
+    <div class="col-lg-9">
+    <div class="float-left col-lg-3">
+        <a class="btn btn-info col-lg-11" href="{{ path('admin_formulario') }}">
+            {{ 'views.recordactions.backtothelist'|trans({}, 'MWSimpleCrudGeneratorBundle') }}
+        </a>
+    </div>
+    
+</div>
+{% endblock %}

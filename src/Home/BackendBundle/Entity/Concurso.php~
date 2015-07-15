@@ -225,4 +225,8 @@ class Concurso
     {
         return $this->concursoxcargos;
     }
+
+    public function __toString(){
+        return $this->getDectreto();
+    }
 }

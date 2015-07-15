@@ -1,0 +1,43 @@
+{% extends 'MWSimpleCrudGeneratorBundle::frontend.html.twig' %}
+
+{% block title %}
+{{ parent() }} - {{ 'views.new.creation'|trans({'%entity%': 'Formulario'}, 'MWSimpleCrudGeneratorBundle') }}
+{% endblock %}
+
+{% block page %}
+    {% form_theme form 'MWSimpleCrudGeneratorBundle:widget:fields.html.twig' %}
+    <div class="row">
+        <div class="col-md-4"><h2>Organismo: <small>{{ concursoxcargo.oficina }}</small> </h2></div>
+    <div class="col-md-6"><h2> Cargo: <small>{{ concursoxcargo.cargo }}</small></h3></div>
+    </div>
+    <div class="panel panel-default center-block">
+        <div class="panel-heading">
+            <h3 class="panel-title center-block">
+                {{ 'views.new.creation'|trans({'%entity%': 'Formulario'}, 'MWSimpleCrudGeneratorBundle') }}
+            </h3>
+        </div>
+
+        <div class="panel-body">
+        {% include 'HomeBackendBundle:Formulario:form.html.twig' with { 'form' : form } %}
+            {{ form(form) }}
+            </div>
+            </div>
+        {% block _user_addresses_addresses_entry_label %}
+        {% endblock %}
+    </div>
+
+        <div class="col-lg-9">
+    <div class="float-left col-lg-3">
+        <a class="btn btn-info col-lg-11" href="{{ path('admin_formulario') }}">
+            {{ 'views.recordactions.backtothelist'|trans({}, 'MWSimpleCrudGeneratorBundle') }}
+        </a>
+    </div>
+</div>
+{% endblock %}
+    
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/mwsimplecrudgenerator/js/widget.js') }}"></script>
+    <script src="{{ asset('bundles/homebackend/js/curso.js') }}"></script>
+
+{% endblock %}

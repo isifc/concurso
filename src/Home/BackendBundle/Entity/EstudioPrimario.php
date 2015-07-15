@@ -150,4 +150,6 @@ class EstudioPrimario
     {
         return $this->formulario;
     }
+
+   
 }

@@ -143,13 +143,13 @@ class Formulario
 
     
     /**
-    * @ORM\OneToOne(targetEntity="EstudioPrimario", inversedBy="formulario" ,fetch="EAGER") //no puedo tener mas de un estudio primario ...
+    * @ORM\OneToOne(targetEntity="EstudioPrimario", inversedBy="formulario" , cascade={"persist", "remove", "merge"},fetch="EAGER") //no puedo tener mas de un estudio primario ...
     */
     private $estudio_primario;
 
     //no puedo tener mas de un estudio secundario...
     /**
-    * @ORM\OneToOne(targetEntity="EstudioSecundario", inversedBy="formulario" ,fetch="EAGER") //no puedo tener mas de un estudio primario ...
+    * @ORM\OneToOne(targetEntity="EstudioSecundario", inversedBy="formulario" ,cascade={"persist", "remove", "merge"} ,fetch="EAGER") //no puedo tener mas de un estudio primario ...
     */
     private $estudio_secundario;
 
@@ -588,6 +588,7 @@ class Formulario
      */
     public function addCurso(\Home\BackendBundle\Entity\Cursos $cursos)
     {
+        //$cursos->setCursos($this);
         $this->cursos[] = $cursos;
 
         return $this;
@@ -612,6 +613,13 @@ class Formulario
     {
         return $this->cursos;
     }
+
+     /**
+     * Get cursos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+   
 
     /**
      * Set concursoxcargo
@@ -690,6 +698,7 @@ class Formulario
      */
     public function addEstudiosSuperiore(\Home\BackendBundle\Entity\EstudioSuperior $estudiosSuperiores)
     {
+        $estudiosSuperiores->setEstudiosSuperiores($this);
         $this->estudios_superiores[] = $estudiosSuperiores;
 
         return $this;
@@ -714,4 +723,11 @@ class Formulario
     {
         return $this->estudios_superiores;
     }
+
+    public function __toString()
+    {
+        return (string)$this->dNI;
+    }
+
+    
 }

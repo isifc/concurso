@@ -1,1 +1,111 @@
-{% extends 'MWSimpleAdminCrudBundle:Default:index.html.twig' %}
+{% extends 'MWSimpleCrudGeneratorBundle::layout.html.twig' %}
+
+{% block title %}
+{{ parent() }} - {{ 'views.index.list'|trans({'%entity%': 'Formulario'}, 'MWSimpleCrudGeneratorBundle') }}
+{% endblock %}
+
+{% block page %}
+
+    <div class="panel panel-default">
+    <div class="panel-body">
+       <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                {{ form_start(filterForm) }}
+                    <div class="col-md-10">
+                        <div class="col-md-3">
+                            {{ form_widget(filterForm.dNI) }}
+                        </div>
+                        <div class="col-md-3">
+                            {{ form_widget(filterForm.nroAleatorio) }}
+                        </div>
+                         <div class="col-md-3">
+                            {{ form_widget(filterForm.nombre) }}
+                        </div>
+                         <div class="col-md-3">
+                            {{ form_widget(filterForm.apellido) }}
+                        </div>
+                       
+                    </div>
+                       {{ form_rest(filterForm) }}
+
+                    </div>
+
+            </div> 
+        </div>
+       </div>  
+
+</div>
+    
+    <div class="row">
+    <div class="panel panel-default">
+    <div class="panel-heading"><h3>{{ 'views.index.list'|trans({'%entity%': 'Formulario'}, 'MWSimpleCrudGeneratorBundle') }}</h3></div>    
+   
+        <table class="table table-hover table-condensed table-responsive">
+            <thead>
+                <tr>
+                    <th{% if entities.isSorted('a.Apellido') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(entities, 'Apellido', 'a.apellido') }}</th>
+                    <th{% if entities.isSorted('a.Nombre') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(entities, 'Nombre', 'a.nombre') }}</th>
+                    <th{% if entities.isSorted('a.Dni') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(entities, 'Dni', 'a.dNI') }}</th>
+                    <th{% if entities.isSorted('a.Estado') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(entities, 'Estado', 'a.estado') }}</th>
+                    <th{% if entities.isSorted('a.Nroaleatorio') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(entities, 'Nroaleatorio', 'a.nroAleatorio') }}</th>
+                    <th{% if entities.isSorted('a.Entregocarpeta') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(entities, 'Entregocarpeta', 'a.entregoCarpeta') }}</th>
+                    <th{% if entities.isSorted('a.Fechainscripcion') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(entities, 'Fechainscripcion', 'a.fechaInscripcion') }}</th>
+                    <th{% if entities.isSorted('a.Celular') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(entities, 'Celular', 'a.celular') }}</th>
+                    <th>{{ 'views.index.actions'|trans({}, 'MWSimpleCrudGeneratorBundle') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td>{{ entity.apellido }}</td>
+                    <td>{{ entity.nombre }}</td>
+                    <td>{{ entity.dNI }}</td>
+                    {% if entity.estado == true %}
+                    <td> <p style="color: green"> Alta </p></td>
+                    {% else %}
+                    <td> <p style="color: red"> Baja </p></td>
+                    {% endif%}
+                    <td>{{ entity.nroAleatorio }}</td>
+                    {% if entity.entregoCarpeta == true %}
+                    <td> <p style="color: green"> SI </p></td>
+                    {% else %}
+                    <td> <p style="color: red"> SI </p></td>
+                    {% endif%}
+                    <td>{% if entity.fechaInscripcion %}{{ entity.fechaInscripcion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ entity.celular }}</td>
+                    <td>
+                        
+        
+                    <a class="glyphicon glyphicon-search tooltips"  href="{{ path('admin_formulario_show', { 'id': entity.id }) }}" title="" rel="tooltip" data-original-title="{{ 'views.actions.show'|trans({}, 'MWSimpleCrudGeneratorBundle') }}">
+
+            </a>
+                
+        
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+
+    <div class="col-lg-4 navigation">
+        {{ knp_pagination_render(entities) }}
+    </div>
+
+   {#    <div class="col-lg-8">
+        <a class="btn btn-primary likepaginator" href="{{ path('admin_formulario_new') }}">
+            {{ 'views.index.createnew'|trans({}, 'MWSimpleCrudGeneratorBundle') }} Formulario
+        </a>#}
+    </div>
+    </div>
+        
+{% endblock %}
+
+
+{% block javascript %}
+<script type="text/javascript">
+$('.tooltips').tooltip();
+
+</script>
+{% endblock %}

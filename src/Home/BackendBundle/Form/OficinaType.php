@@ -25,6 +25,7 @@ class OficinaType extends AbstractType
             ->add('ofiCUI')
             ->add('jurMarcBaj')
             ->add('jurisdiccion')
+            ->add('ambito')
         ;
     }
     

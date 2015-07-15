@@ -201,6 +201,8 @@ class Concurso
      */
     public function addConcursoxcargo(\Home\BackendBundle\Entity\ConcursoxCargo $concursoxcargos)
     {
+        $concursoxcargos->setConcurso($this);
+
         $this->concursoxcargos[] = $concursoxcargos;
 
         return $this;
@@ -224,5 +226,9 @@ class Concurso
     public function getConcursoxcargos()
     {
         return $this->concursoxcargos;
+    }
+
+    public function __toString(){
+        return $this->getDectreto();
     }
 }

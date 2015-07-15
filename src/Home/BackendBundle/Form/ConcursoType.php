@@ -20,11 +20,28 @@ class ConcursoType extends AbstractType
     {
         $builder
             ->add('tipoConcurso')
-            ->add('fechaInicio')
-            ->add('fechaFin')
+            ->add('fechaInicio','datetime',
+                array(
+                        'widget' => 'single_text',
+                        'html5'   => false,
+                        'attr'=> array('class'=>'form-control',
+                                                    'placeholder' => 'Fecha Desde: ')))
+            ->add('fechaFin','datetime',
+                array(
+                        'widget' => 'single_text',
+                        'html5'   => false,
+                        'attr'=> array('class'=>'form-control',
+                                                    'placeholder' => 'Fecha Desde: ')))
             ->add('dectreto')
             ->add('cantidadCargo')
-        ;
+            ->add('concursoxcargos', 
+                'collection', 
+                array(
+                    'type' => new ConcursoxCargoType(),
+                    'allow_delete'   => true,
+                    'allow_add'      => true,
+                    'by_reference'   => false, ));
+           
     }
     
     /**

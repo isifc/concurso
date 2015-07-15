@@ -22,21 +22,51 @@ class ConcursoFilterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('tipoConcurso', 'filter_text',array(
-                        'attr'=> array('class'=>'form-control')
+         ->add('dectreto', 
+               'filter_text',
+                array('attr'=> array(
+                    'placeholder' => 'Decreto',
+                    'class'=>'form-control',
+                   )
                     ))
-            ->add('fechaInicio', 'filter_date_range',array(
-                        'attr'=> array('class'=>'form-control')
-                    ))
-            ->add('fechaFin', 'filter_date_range',array(
-                        'attr'=> array('class'=>'form-control')
-                    ))
-            ->add('dectreto', 'filter_text',array(
-                        'attr'=> array('class'=>'form-control')
-                    ))
-            ->add('cantidadCargo', 'filter_number_range',array(
-                        'attr'=> array('class'=>'form-control')
-                    ))
+            ->add('fechaInicio',
+                'filter_date_range',
+                array(
+                    'label' => 'Tematica',
+                    'left_date_options' => array(
+                        'widget' => 'single_text',
+                        'html5'   => false,
+                        'attr'=> array('class'=>'form-control',
+                                                                'placeholder' => 'Fecha Desde: ')
+                        ), // date type options
+                    'right_date_options' => array(
+                                'widget' => 'single_text', 
+                                'html5'   => false,
+                                'attr'=> array('class'=>'form-control',
+                                                            'placeholder' => 'Fecha Hasta: ')
+                                   
+                            )
+                        ))
+            ->add('fechaFin', 
+                  'filter_date_range',
+                   array(
+                    'left_date_options' => array(
+                        'widget' => 'single_text',
+                        'html5'   => false,
+                        'attr'=> array('class'=>'form-control',
+                                                    'placeholder' => 'Fecha Desde: ')
+                     ), // date type options
+                    'right_date_options' => array(
+                        'widget' => 'single_text', 
+                        'html5'   => false,
+                        'attr'=> array('class'=>'form-control',
+                                                    'placeholder' => 'Fecha Hasta: ')
+                           
+                    )
+                ))
+                    
+           
+        
         ;
 
         $listener = function(FormEvent $event)

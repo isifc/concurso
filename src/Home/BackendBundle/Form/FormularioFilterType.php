@@ -15,64 +15,37 @@ use Symfony\Component\Form\FormError;
  */
 class FormularioFilterType extends AbstractType
 {
-    /**
+        /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('estado', 'filter_choice', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('nroAleatorio', 'filter_number_range', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('entregoCarpeta', 'filter_choice', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('fechaInscripcion', 'filter_date_range', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('apellido', 'filter_text_like', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('nombre', 'filter_text_like', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('dNI', 'filter_number_range', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('cUIL', 'filter_number_range', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('fechaNacimiento', 'filter_date_range', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('provincia', 'filter_text_like', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('localidad', 'filter_text_like', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('direccion', 'filter_text_like', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('codigoPostal', 'filter_number_range', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('mail', 'filter_text_like', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('telefono', 'filter_number_range', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('telefonoLaboral', 'filter_number_range', array(
-                'attr'=> array('class'=>'form-control')
-            ))
-            ->add('celular', 'filter_number_range', array(
-                'attr'=> array('class'=>'form-control')
-            ))
+            ->add('nroAleatorio', 
+                'filter_number',
+                 array(
+                     'attr'=> array('class'=>'form-control',
+                                    'placeholder' => 'Número Aleatorio',)
+                    ))
+            ->add('apellido',
+                'filter_text',
+                 array(
+                    'attr'=> array('class'=>'form-control',
+                                    'placeholder' => 'Apellido')
+                    ))
+            ->add('nombre', 
+                'filter_text',
+                array(
+                    'attr'=> array('class'=>'form-control',
+                                    'placeholder' => 'Nombre')
+                    ))
+            ->add('dNI', 
+                'filter_number',
+                array(
+                    'attr'=> array('class'=>'form-control',
+                        'placeholder' => 'DNI')
+                    ))
         ;
 
         $listener = function(FormEvent $event)

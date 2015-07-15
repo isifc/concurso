@@ -302,4 +302,8 @@ class Cargo
     {
         return $this->concursoxcargos;
     }
+
+    public function __toString(){
+        return (string)$this->getDenominacion();
+    }
 }
