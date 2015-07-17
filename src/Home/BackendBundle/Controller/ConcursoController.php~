@@ -1,0 +1,59 @@
+<?php
+
+namespace Home\BackendBundle\Controller;
+
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Home\BackendBundle\Entity\Concurso;
+
+/**
+ * Concurso controller.
+ *
+ * @Route("/concurso")
+ */
+class ConcursoController extends Controller
+{
+
+    /**
+     * Lists all Concurso entities.
+     *
+     * @Route("/", name="concurso")
+     * @Method("GET")
+     * @Template()
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('HomeBackendBundle:Concurso')->findAll();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+
+    /**
+     * Finds and displays a Concurso entity.
+     *
+     * @Route("/{id}", name="concurso_show")
+     * @Method("GET")
+     * @Template()
+     */
+    public function showAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('HomeBackendBundle:Concurso')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Concurso entity.');
+        }
+
+        return array(
+            'entity'      => $entity,
+        );
+    }
+}

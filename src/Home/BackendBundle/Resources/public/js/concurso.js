@@ -3,12 +3,9 @@
 		prototype = $('.cargos').attr('data-prototype'),
 	    addCargo = function(e) {
 	    	var count = parseInt($cargos.attr('data-count'), 10);
-
-	    	count = isNaN(count) ? 1 : count + 1; 
+			count = isNaN(count) ? 1 : count + 1; 
 	    	$cargos.append(prototype.replace(/__name__/g, count));
-
 	    	$cargos.attr('data-count', count);
-
 	    	e.preventDefault();
 	    },
 	    removeCargo = function(e) {

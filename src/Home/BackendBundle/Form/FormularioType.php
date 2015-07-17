@@ -27,7 +27,13 @@ class FormularioType extends AbstractType
             ->add('nombre')
             ->add('dNI')
             ->add('cUIL')
-            ->add('fechaNacimiento')
+            //->add('')
+            ->add('fechaNacimiento','datetime',
+                array(
+                        'widget' => 'single_text',
+                        'html5'   => false,
+                        'attr'=> array('class'=>'form-control',
+                                                    'placeholder' => 'Fecha de Nacimiento: ')))
             ->add('provincia')
             ->add('localidad')
             ->add('direccion')

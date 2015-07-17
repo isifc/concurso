@@ -39,5 +39,11 @@
     {{ parent() }}
     <script src="{{ asset('bundles/mwsimplecrudgenerator/js/widget.js') }}"></script>
     <script src="{{ asset('bundles/homebackend/js/curso.js') }}"></script>
+    <script type="text/javascript">
+     $('#home_backendbundle_formulario_fechaNacimiento').datepicker({
+        // inline: true,
+         //sideBySide: true
+    })
+</script>
 
 {% endblock %}

@@ -14,8 +14,7 @@
         </div>
             
         <div class="panel-body">
-        {% include 'HomeBackendBundle:Concurso:form.html.twig' with { 'form' : form } %}
-            {# {{ form(form) }} #}
+            {% include 'HomeBackendBundle:Concurso:form.html.twig' with { 'form' : form } %}
         </div>
     </div>
         {% block _user_addresses_addresses_entry_label %}
@@ -28,13 +27,12 @@
     </div>
 </div>
 {% endblock %}
-    
 {% block javascript %}
     {{ parent() }}
 <script src="{{ asset('bundles/mwsimplecrudgenerator/js/widget.js') }}"></script>
 <script src="{{ asset('bundles/homebackend/js/concurso.js') }}"></script>
 <script type="text/javascript">
-     $('#home_backendbundle_concurso_fechaFin').datepicker({
+    $('#home_backendbundle_concurso_fechaFin').datepicker({
          inline: true,
          sideBySide: true
     })
@@ -42,9 +40,16 @@
          inline: true,
          sideBySide: true
     })
-
-    </script>
-
+    $('.cargoselect').select2({
+        minimumInputLength: 3,
+        placeholder: "seleccione un cargo",
+    });
+    $('.oficinaselect').select2({
+        minimumInputLength: 3,
+        placeholder: "seleccione una oficina",
+    });
 </script>
+
+
 
 {% endblock %}

@@ -43,6 +43,7 @@ class FormularioController extends Controller
             $entity->setEstado(false);
             $entity->setNroAleatorio(rand(5,5));
             $entity->setEntregoCarpeta(false);
+
             //$entity->setFechaInscripcion(Datetime(('Y-m-d')));
             $em->persist($entity);
             $em->flush();
@@ -104,9 +105,11 @@ class FormularioController extends Controller
     public function newAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $entity = new Formulario();
-        $form   = $this->createCreateForm($entity);
         $concursoxcargo = $em->getRepository('HomeBackendBundle:ConcursoxCargo')->find($id);
+        $entity = new Formulario();
+        //$entity->setConcursoxcargo($concursoxcargo); 
+        $form   = $this->createCreateForm($entity);
+        
        
 
         return array(

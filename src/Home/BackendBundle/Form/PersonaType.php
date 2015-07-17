@@ -7,10 +7,10 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * ConcursoxCargoType form.
+ * PersonaType form.
  * @author Nombre Apellido <name@gmail.com>
  */
-class ConcursoxCargoType extends AbstractType
+class PersonaType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -19,14 +19,11 @@ class ConcursoxCargoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('cargo',
-                null, 
-                array('attr' =>
-                        array('class' => 'cargoselect')))
-            ->add('oficina',
-                null, 
-                array('attr' =>
-                        array('class' => 'oficinaselect')))
+            ->add('dNI')
+            ->add('apellidoynombre')
+            ->add('escalafon')
+            ->add('plantaPermanente')
+            ->add('jurisdiccion')
         ;
     }
     
@@ -36,7 +33,7 @@ class ConcursoxCargoType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Home\BackendBundle\Entity\ConcursoxCargo'
+            'data_class' => 'Home\BackendBundle\Entity\Persona'
         ));
     }
 
@@ -45,6 +42,6 @@ class ConcursoxCargoType extends AbstractType
      */
     public function getName()
     {
-        return 'home_backendbundle_concursoxcargo';
+        return 'home_backendbundle_persona';
     }
 }

@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Home\BackendBundle\Entity\Concurso;
+use Home\BackendBundle\Entity\Persona;
 use Home\BackendBundle\Entity\ConcursoxCargo;
 use Home\BackendBundle\Form\ConcursoType;
 use Home\BackendBundle\Form\ConcursoFilterType;
@@ -31,6 +32,9 @@ class ConcursoController extends Controller
     public function indexAction()
     {
         list($filterForm, $queryBuilder) = $this->filter();
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('HomeBackendBundle:Persona');
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -41,11 +45,10 @@ class ConcursoController extends Controller
 
         return array(
             'entities'   => $pagination,
-            'filterForm' => $filterForm->createView(),
+           
         );
     }
-
-    /**
+/**
     * Process filter request.
     *
     * @return array
@@ -96,7 +99,7 @@ class ConcursoController extends Controller
     private function createFilterForm($filterData = null)
     {
         $form = $this->createForm(new ConcursoFilterType(), $filterData, array(
-            'action' => $this->generateUrl('concurso'),
+            'action' => $this->generateUrl('admin_concurso'),
             'method' => 'GET',
         ));
 
@@ -104,17 +107,43 @@ class ConcursoController extends Controller
             ->add('filter', 'submit', array(
                 'translation_domain' => 'MWSimpleCrudGeneratorBundle',
                 'label'              => 'views.index.filter',
-                'attr'               => array('class' => 'btn btn-sm col-lg-1'),
+                'attr'               => array('class' => 'btn btn-primary btn-sm col-lg-1'),
             ))
             ->add('reset', 'submit', array(
                 'translation_domain' => 'MWSimpleCrudGeneratorBundle',
                 'label'              => 'views.index.reset',
-                'attr'               => array('class' => 'btn btn-sm col-lg-1 col-lg-offset-1'),
+                'attr'               => array('class' => 'btn btn-primary btn-sm '),
             ))
         ;
 
         return $form;
     }
+    ///**
+    // * Validar el DNI con el padron.
+    // * @Route("/validar/{id}", name="validacion")
+    // * @Method("GET")
+    // * @Template(HomeBackendBundle:Concurso:validacion.html.twig)
+    // */
+    /* public function validacion($id){
+
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('HomeBackendBundle:Persona')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Persona entity.');
+        }
+
+        //$deleteForm = $this->createDeleteForm($id);
+
+        return array(
+            'entity'      => $entity,
+            //'delete_form' => $deleteForm->createView(),
+        );
+    }*/
+
+
+    
     /**
      * Finds and displays a Concurso entity.
      *
@@ -131,8 +160,6 @@ class ConcursoController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Concurso entity.');
         }
-
-
         return array(
             'entity'      => $entity,
         );
