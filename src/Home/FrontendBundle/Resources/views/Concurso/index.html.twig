@@ -14,11 +14,10 @@
      <table class="table table-striped  table-condensed table-responsive">
         <thead>
             <tr>
-                <th>Id</th>
+                <th> Dectreto </th>
                 <th>Tipoconcurso</th>
                 <th>Fechainicio</th>
                 <th>Fechafin</th>
-                <th>Dectreto</th>
                 <th>Cantidadcargo</th>
                 <th>Actions</th>
             </tr>
@@ -26,17 +25,14 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('concurso_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><h5><b> {{ entity.dectreto }} </b></h5></td>
                 <td>{{ entity.tipoConcurso }}</td>
                 <td>{% if entity.fechaInicio %}{{ entity.fechaInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.fechaFin %}{{ entity.fechaFin|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.dectreto }}</td>
+                <td>{% if entity.fechaFin %}{{ entity.fechaFin|date('Y-m-d H:i') }}{% endif %}</td>
                 <td>{{ entity.cantidadCargo }}</td>
                 <td>
                 <ul>
-                   
-                        <a href="{{ path('concurso_show', { 'id': entity.id }) }}" class="btn btn-sm btn-info">ver cargos</a>
-                   
+                    <a href="{{ path('concurso_show', { 'id': entity.id }) }}" class="btn btn-sm btn-info">ver cargos</a>
                 </ul>
                 </td>
             </tr>
